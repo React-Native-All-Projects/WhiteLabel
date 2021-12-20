@@ -1,6 +1,6 @@
 import Config from "react-native-config";
-import betaConfig from './beta.config';
-import devConfig from './dev.config';
+import betaConfig from "./beta/beta.config";
+import devConfig from "./dev/dev.config";
 
 const Configs = {
     'beta' : betaConfig,

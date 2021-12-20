@@ -1,5 +1,5 @@
-import betaStyle from "./beta/beta.style";
-import betaText from "./beta/beta.text";
+import betaStyle from "./beta.style";
+import betaText from "./beta.text";
 
 
 const devConfig = {

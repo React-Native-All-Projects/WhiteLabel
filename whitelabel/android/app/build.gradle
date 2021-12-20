@@ -1,6 +1,5 @@
 apply plugin: "com.android.application"
 project.ext.envConfigFiles = [
-    debug: "config/.env",
     betadebug: "config/.env.beta",
     devdebug: "config/.env.dev"
 ]

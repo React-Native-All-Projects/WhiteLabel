@@ -1,5 +1,5 @@
-import devStyle from "./dev/dev.style";
-import devText from "./dev/dev.text";
+import devStyle from "./dev.style";
+import devText from "./dev.text";
 
 
 const devConfig = {

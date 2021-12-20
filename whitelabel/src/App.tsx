@@ -3,21 +3,20 @@
 import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import Config from "react-native-config";
-import configApp from "./apps/app.config";
-import Style from "./apps/style";
+import StyleConfig from "./apps/style.config";
+import TextConfig from "./apps/text.config";
 
 const App = () =>{
     useEffect(() => {
-        // console.log('Config : ' , Config);
-        // console.log('configApp : ' , configApp);
-        console.log('Style : '  , Style);
-        
+        console.log('Config : ' , Config);
+        console.log('Style : '  , StyleConfig);
+        console.log('Text : ' , TextConfig)
     }, [])
 
     return (
         <View style={[{flex:1,justifyContent:'center',alignItems:'center'}]}>
-            <Text style={[Style.text]}>APPLICATION_ID : {Config.APPLICATION_ID}</Text>
-            <Text style={[Style.text]}>Text : {configApp.text.text}</Text>
+            <Text style={[StyleConfig.text]}>APPLICATION_ID : {Config.APPLICATION_ID}</Text>
+            <Text style={[StyleConfig.text]}>Text : {TextConfig.Text}</Text>
         </View>
     )
 }
