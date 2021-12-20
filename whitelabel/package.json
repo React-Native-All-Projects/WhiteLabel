@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "android-beta":"npx react-native run-android --variant betadebug --appId com.beta",
+    "android-dev":"npx react-native run-android --variant devdebug --appId com.dev"
   },
   "dependencies": {
     "react": "17.0.2",

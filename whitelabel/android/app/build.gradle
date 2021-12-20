@@ -1,4 +1,10 @@
 apply plugin: "com.android.application"
+project.ext.envConfigFiles = [
+    debug: "config/.env",
+    betadebug: "config/.env.beta",
+    devdebug: "config/.env.dev"
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -130,12 +136,13 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    flavorDimensions "default"
     defaultConfig {
-        applicationId "com.whitelabel"
+        applicationId project.env.get("APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName project.env.get("Application_Version")
     }
     splits {
         abi {
@@ -171,6 +178,23 @@ android {
         }
     }
 
+    productFlavors {
+        dev 
+        {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.dev'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.whitelabel"
+        }
+        beta 
+        {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId 'com.beta'
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.whitelabel"
+        }
+    }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -192,6 +216,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation project(':react-native-config')
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
