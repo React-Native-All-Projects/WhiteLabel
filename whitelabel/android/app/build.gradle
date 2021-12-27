@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 project.ext.envConfigFiles = [
-    betadebug: "config/.env.beta",
-    devdebug: "config/.env.dev"
+    beta: "config/.env.beta",
+    dev: "config/.env.dev"
 ]
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
@@ -137,7 +137,7 @@ android {
 
     flavorDimensions "default"
     defaultConfig {
-        applicationId project.env.get("APP_ID")
+        applicationId project.env.get("APPLICATION_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
